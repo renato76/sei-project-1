@@ -70,10 +70,18 @@ It should not matter what height row they are in, that should make no difference
 
 
 
+**************** How do Pieces move and stop etc  ***************
 
-**************** Calculating The WIN LOGIC  ***************
 
+Looking at the grid, I could haven an x and y axis
 
+So Positions would be a grid reference with an x and y position, total of 42 possibilities
+
+So lets just think like a game starts, what happens?
+
+Player 1 Red - clicks column x3. 
+A red playing piece drops down col 3 and stops at the last row, x3, y1
+Need a function 
 
 
 
