@@ -12,6 +12,7 @@ function init() {
     for (let i = 0; i < gridCellCount; i++) { // this adds id number to each cell / div
       const cell = document.createElement('div')
       cell.setAttribute('id', i)
+      cell.textContent = i
       cells.push(cell)
       grid.appendChild(cell)
     }

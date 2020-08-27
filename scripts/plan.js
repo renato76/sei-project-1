@@ -80,15 +80,51 @@ So Positions would be a grid reference with an x and y position, total of 42 pos
 So lets just think like a game starts, what happens?
 
 Player 1 Red - clicks column x3. 
-A red playing piece drops down col 3 and stops at the last row, x3, y1
-Need a function 
+A red playing piece drops down col 3 and stops at the last row, x3, y1 OR div ID #37
 
 
 
 
 
+***************      The Winning Logic        ************************
+
+Player 1 Array []
+Player 2 Array []
+
+Massive If else statement to check all the possible winning combinations:
+
+24 possible wins horizontally
+21 possible wins vertically
+24 possible wins diagonally
 
 
+
+
+***************        Game Flow              *************************
+
+1. setUpBoard()
+2. displayBoard()
+
+ifGameRunning, (every time player chooses):
+1. The div id gets pushed into the player's array
+2. placeToken() this puts token in correct grid position
+3. checkForWinner()
+4. switchPlayer()
+
+ifGameOver() 
+1. displayWinner()
+2. updateScores
+3. newGame()
+
+
+
+Notes
+
+I have added cell.textcontent to each grid, so they're all numbered 0-41
+Perhaps I could create arrays for each column using either this cell.textcontent or cell.div.ID
+
+If I have an array for each column I could then decide which columns the piece foes into and also have
+an indicator follow the mouse hover as it hovers across the grid
 
 
 
