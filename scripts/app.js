@@ -1,9 +1,31 @@
 function init() {
 
+  // let currentPlayer, scores
+
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
-  const displayCurrentPlayer = document.querySelector('#current-player')
-  let currentPlayer = 1
+  let currentPlayer = document.querySelector('#current-player')
+  const playerOne = document.querySelector('#player-one')
+  const playerTwo = document.querySelector('#player-two')
+  
+  
+
+  function newGame()  {
+    
+    currentPlayer = playerOne
+    document.getElementById('score1').textContent = '0'
+    document.getElementById('score2').textContent = '0'
+
+  }
+  newGame()
+
+
+
+  function nextPlayer() {
+    currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
+  }
+
+
 
   const cells = []
   const width = 7 // how many cells wide is the grid
@@ -22,45 +44,39 @@ function init() {
       cells.push(cell)
       grid.appendChild(cell)
     }
-    console.log('cells', cells)
+    // console.log('cells', cells)
   }
 
   createGrid()
 
-  // Create function that can listen for mouse hovering 
-  // over board and return a column number
+  // Function that can return which column and place player-one Red circle
   
   cells.forEach(cell => {
-    cell.addEventListener('click', handleHover)
+    cell.addEventListener('click', handleClick)
   }) 
   
-  function handleHover(e) {
-    const cell = e.target.id
+  function handleClick(e) {
+    const cell = e.target.id 
     console.log('column', cell % width)
+    cells[Number(e.target.id)].classList.add('player-one') 
+    
+    
+    console.log(cell)
   }
-
-
-
-
-
-
-
-
-  // create a function that will change the bg color of the first empty cell
-  // in the chosen column
-
-
   
 
+  // nextPlayer()
 
 
 
-  
-  
 
 
 
-  
+
+
+
+
+
 
 
 

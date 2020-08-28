@@ -105,7 +105,7 @@ Massive If else statement to check all the possible winning combinations:
 1. setUpBoard()
 2. displayBoard()
 
-ifGameRunning, (every time player chooses):
+if GameRunning, (every time player chooses):
 1. The div id gets pushed into the player's array
 2. placeToken() this puts token in correct grid position
 3. checkForWinner()
