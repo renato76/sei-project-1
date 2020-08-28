@@ -4,7 +4,8 @@ function init() {
 
   const cells = []
   const width = 7 // how many cells wide is the grid
-  const gridCellCount = width * 6 // how many cells we want
+  const height = 6
+  const gridCellCount = width * height // how many cells we want
 
   const player1 = []
   const player2 = []
@@ -33,24 +34,37 @@ function init() {
   
   function handleHover(e) {
     const cell = e.target.id
-    console.log(cell % width)
+    console.log('column', cell % width)
   }
 
-  cells.forEach(cell => {
-    cell.addEventListener('click', handleHover)
-  })
+
+
+  function addRed(cell) {
+    cells[cell].classList.add('red') 
+  }
+
+  function addYellow(cell) {
+    cells[cell].classList.add('yellow')
+  }
 
 
   // Create a function that return row id
 
-  
+  // function getRow()  {
+  //   if (event.target.classList.contains('red' || 'yellow')) {
+  //     console.log(getRow)
+  //   }    
+  // } 
+
+
+
 
 
   // create a function that will change the bg color of the first empty cell
   // in the chosen column
 
 
-
+  
 
 
 
