@@ -58,4 +58,17 @@ body {
   background-color: rgb(98, 0, 211);
 }
 
+.player-one {
+  background-color: red;
+  border-radius: 10px;
+}
 
+.player-two {
+  background-color: yellow;
+  border-radius: 10px;
+}
+
+h3,
+h2 {
+  color: white;
+}

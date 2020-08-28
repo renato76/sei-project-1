@@ -1,14 +1,16 @@
 function init() {
 
   const grid = document.querySelector('.grid')
+  const result = document.querySelector('#result')
+  const displayCurrentPlayer = document.querySelector('#current-player')
+  let currentPlayer = 1
 
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
   const gridCellCount = width * height // how many cells we want
 
-  const player1 = []
-  const player2 = []
+
   
   // Function to create the playing grid
 
@@ -39,22 +41,6 @@ function init() {
 
 
 
-  function addRed(cell) {
-    cells[cell].classList.add('red') 
-  }
-
-  function addYellow(cell) {
-    cells[cell].classList.add('yellow')
-  }
-
-
-  // Create a function that return row id
-
-  // function getRow()  {
-  //   if (event.target.classList.contains('red' || 'yellow')) {
-  //     console.log(getRow)
-  //   }    
-  // } 
 
 
 
