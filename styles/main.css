@@ -21,8 +21,8 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #d5d5d5;
-  padding: 90px 30px;
-  margin: 0 60px 0 60px;
+  padding: 100px 20px;
+  margin: 0 40px 0 40px;
   box-shadow: 20 0 20px 0 rgba(237, 237, 237, 0.2);
 }
 
@@ -33,10 +33,10 @@ body {
   background-color: #005eff;
   border: 2px solid #013ea7;
   padding: 20px; 
-  height: 60vh;
+  height: 70vh;
   justify-content: center;
   /* padding: 30px 30px; */
-  width: 480px;
+  width: 600px;
   box-shadow: -4px -4px 2px 0 #013288;
 }
 
@@ -46,7 +46,7 @@ body {
   box-shadow: inset -1px -6px 0 #0146bd;  
   border-radius: 50%;
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px;
   height: 16.67%;
   width: 14.28%;
 }
