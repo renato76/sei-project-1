@@ -62,10 +62,6 @@ function init() {
 
   // }
 
-  
-  // cells.forEach(cell => {
-  //   cell.addEventListener('click', handleClick)
-  // }) 
 
   const colArray = []
   function handleClick(e) {
@@ -80,20 +76,32 @@ function init() {
     console.log(colArray[colArray.length - 1])
   }
 
-  // I have now created a Column One using a loop
+
+
+  
+
+  // I have now created a Column One Array using a loop
 
   const columnOne = []
   for (let i = 0; i < cells.length; i += 7) {
     columnOne.push(cells[i])
   }
-  console.log(columnOne)
+  console.log(columnOne)  
 
-  function handleClickColOne(e) {
-    
+  // Added Event listener for cloumn One
+
+  columnOne.forEach(cell => {
+    cell.addEventListener('click', handleColumnClick)
+  })
+
+  function handleColumnClick(e) {
+    const cell = e.target.id
+    console.log(cell)
+    columnOne.push(cell).id
+    console.log(columnOne)
   }
   
 
-    
 
 
   nextPlayer()  
