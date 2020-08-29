@@ -8,7 +8,6 @@ function init() {
   const playerOne = document.querySelector('#player-one')
   const playerTwo = document.querySelector('#player-two')
   
-  
 
   function newGame()  {
     
@@ -19,6 +18,9 @@ function init() {
   }
   newGame()
 
+  function addPlayerOneToken()  {
+    cells.classList.add('player-one')
+  }
 
 
   // function nextPlayer() {
@@ -31,7 +33,6 @@ function init() {
   const width = 7 // how many cells wide is the grid
   const height = 6
   const gridCellCount = width * height // how many cells we want
-
 
   
   // Function to create the playing grid
@@ -53,18 +54,22 @@ function init() {
 
 
   // Function that can return which column and place player-one Red circle
-
+  cells.forEach(cell => {
+    cell.addEventListener('click', handleClick)
+  }) 
+  
   // const findEmptyCell = column => {
   //   const cellNumbers = cells.filter(cell => {
   //     return cell.id % grid === column && cell.classList.length === 0
   //   })
   //   console.log(cellNumbers[cellNumbers.length - 1])
+
   // }
 
   
-  cells.forEach(cell => {
-    cell.addEventListener('click', handleClick)
-  }) 
+  // cells.forEach(cell => {
+  //   cell.addEventListener('click', handleClick)
+  // }) 
 
   const colArray = []
   function handleClick(e) {
@@ -78,14 +83,18 @@ function init() {
     console.log(colArray)
     console.log(colArray[colArray.length - 1])
 
+    const cellNumbers = cells.filter(cell => {
+      return cell.id % grid === column && cell.classList.length === 0
+    })
+    console.log(cellNumbers[cellNumbers.length - 1])
+    
+
+
+
   }
   
-
-
-      
-  // cell = cell.id % grid === column && cell.classList.length === 0
   
-
+  // Switch Players using a function?
   // nextPlayer()
 
 
