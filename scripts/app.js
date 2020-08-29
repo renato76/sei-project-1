@@ -72,39 +72,44 @@ function init() {
 
     colArray.push(cell).id
     cells[Number(e.target.id)].classList.add('player-one') 
-    console.log(colArray)
-    console.log(colArray[colArray.length - 1])
+    // console.log(colArray)
+    // console.log(colArray[colArray.length - 1])
   }
+    
 
-
-
-  
 
   // I have now created a Column One Array using a loop
 
-  const columnOne = []
+  const columnZero = []
   for (let i = 0; i < cells.length; i += 7) {
-    columnOne.push(cells[i])
+    columnZero.push(cells[i])
   }
-  console.log(columnOne)  
+  console.log(columnZero)  
 
-  // Added Event listener for cloumn One
+  // Added Event listener for columnOne
 
-  columnOne.forEach(cell => {
+  columnZero.forEach(cell => {
     cell.addEventListener('click', handleColumnClick)
   })
 
   function handleColumnClick(e) {
     const cell = e.target.id
     console.log(cell)
-    columnOne.push(cell).id
-    console.log(columnOne)
+    columnZero.push(cell).id
+    console.log(columnZero)
+
+    
+    const findEmptyCell = columnZero.filter(cell => !cell.classList)
+    console.log(findEmptyCell)
   }
-  
 
 
 
-  nextPlayer()  
+
+
+
+
+  // nextPlayer()  
   // Switch Players using a function?
   // nextPlayer()
 
