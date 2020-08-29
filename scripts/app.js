@@ -8,24 +8,20 @@ function init() {
   const playerOne = document.querySelector('#player-one')
   const playerTwo = document.querySelector('#player-two')
   
+  playerOne
+  playerTwo
 
   function newGame()  {
-    
     currentPlayer = playerOne
     document.getElementById('score1').textContent = '0'
     document.getElementById('score2').textContent = '0'
-
   }
   newGame()
 
-  function addPlayerOneToken()  {
-    cells.classList.add('player-one')
+
+  function nextPlayer() {
+    currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
   }
-
-
-  // function nextPlayer() {
-  //   currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
-  // }
 
 
 
@@ -76,26 +72,35 @@ function init() {
     const cell = e.target.id 
     // console.log('column', cell % width)
     const column = cell % width
-    console.log(column)
+    console.log('column number', column)
 
     colArray.push(cell).id
     cells[Number(e.target.id)].classList.add('player-one') 
     console.log(colArray)
     console.log(colArray[colArray.length - 1])
+  }
 
-    const cellNumbers = cells.filter(cell => {
-      return cell.id % grid === column && cell.classList.length === 0
-    })
-    console.log(cellNumbers[cellNumbers.length - 1])
+  // I have now created a Column One using a loop
+
+  const columnOne = []
+  for (let i = 0; i < cells.length; i += 7) {
+    columnOne.push(cells[i])
+  }
+  console.log(columnOne)
+
+  function handleClickColOne(e) {
+    
+  }
+  
+
     
 
 
-
-  }
-  
-  
+  nextPlayer()  
   // Switch Players using a function?
   // nextPlayer()
+
+
 
 
 
