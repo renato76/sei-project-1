@@ -21,9 +21,9 @@ function init() {
 
 
 
-  function nextPlayer() {
-    currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
-  }
+  // function nextPlayer() {
+  //   currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
+  // }
 
 
 
@@ -50,13 +50,9 @@ function init() {
 
   createGrid()
 
+
+
   // Function that can return which column and place player-one Red circle
-
-
-  
-  cells.forEach(cell => {
-    cell.addEventListener('click', handleClick)
-  }) 
 
   // const findEmptyCell = column => {
   //   const cellNumbers = cells.filter(cell => {
@@ -65,29 +61,30 @@ function init() {
   //   console.log(cellNumbers[cellNumbers.length - 1])
   // }
 
+  
+  cells.forEach(cell => {
+    cell.addEventListener('click', handleClick)
+  }) 
+
   const colArray = []
   function handleClick(e) {
-    let cell = e.target.id 
+    const cell = e.target.id 
     // console.log('column', cell % width)
     const column = cell % width
     console.log(column)
 
-    
     colArray.push(cell).id
     cells[Number(e.target.id)].classList.add('player-one') 
     console.log(colArray)
     console.log(colArray[colArray.length - 1])
+
   }
-
-      
-  // cell = cell.id % grid === column && cell.classList.length === 0
-
-  // cells[Number(e.target.id)].classList.add('player-one') 
-    
-  // console.log(cell)
   
 
 
+      
+  // cell = cell.id % grid === column && cell.classList.length === 0
+  
 
   // nextPlayer()
 
