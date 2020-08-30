@@ -59,12 +59,12 @@ body {
 }
 
 .player-one {
-  background-color: red;
+  background-color: yellow;
   border-radius: 10px;
 }
 
 .player-two {
-  background-color: yellow;
+  background-color: red;
   border-radius: 8px;
 }
 

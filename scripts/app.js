@@ -19,9 +19,9 @@ function init() {
   newGame()
 
 
-  function nextPlayer() {
-    currentPlayer === playerOne ? currentPlayer = playerTwo : currentPlayer = playerOne
-  }
+  // function nextPlayer() {
+  //   playerOne ? playerTwo : playerOne
+  // }
 
 
 
@@ -29,7 +29,6 @@ function init() {
   const width = 7 // how many cells wide is the grid
   const height = 6
   const gridCellCount = width * height // how many cells we want
-
   
   // Function to create the playing grid
 
@@ -49,69 +48,86 @@ function init() {
 
 
 
-  // Function that can return which column and place player-one Red circle
+  // Function that can return which column and place player1 or player2 color background
+
   cells.forEach(cell => {
     cell.addEventListener('click', handleClick)
   }) 
-  
-  // const findEmptyCell = column => {
-  //   const cellNumbers = cells.filter(cell => {
-  //     return cell.id % grid === column && cell.classList.length === 0
-  //   })
-  //   console.log(cellNumbers[cellNumbers.length - 1])
-
-  // }
-
 
   const colArray = []
   function handleClick(e) {
     const cell = e.target.id 
     // console.log('column', cell % width)
     const column = cell % width
-    console.log('column number', column)
-
+    console.log('column', column)
     colArray.push(cell).id
     cells[Number(e.target.id)].classList.add('player-one') 
+    console.log(colArray)
+
+    
+    // const findEmptyCell = column => {
+    //   const cellNumbers = cells.filter(cell => {
+    //     return cell.id % grid === column && cell.classList.length === 0
+    //   })
+    //   console.log(cellNumbers[cellNumbers.length - 1])
+
+    // }
+
+    
+    
+  
+    
+
+
+
+    // cells[Number(e.target.id)].classList.add('player-one') 
     // console.log(colArray)
     // console.log(colArray[colArray.length - 1])
   }
     
 
 
-  // I have now created a Column One Array using a loop
+  // I have now created a Column Zero Array using a loop
 
-  const columnZero = []
-  for (let i = 0; i < cells.length; i += 7) {
-    columnZero.push(cells[i])
-  }
-  console.log(columnZero)  
+  // const columnZero = []
+  // for (let i = 0; i < cells.length; i += 7) {
+  //   columnZero.push(cells[i])
+  // }
+  // console.log(columnZero)  
+  
 
-  // Added Event listener for columnOne
+  // Added Event listener for columnZero
 
-  columnZero.forEach(cell => {
-    cell.addEventListener('click', handleColumnClick)
-  })
-
-  function handleColumnClick(e) {
-    const cell = e.target.id
-    console.log(cell)
-    columnZero.push(cell).id
-    console.log(columnZero)
-
-    
-    const findEmptyCell = columnZero.filter(cell => !cell.classList)
-    console.log(findEmptyCell)
-  }
+  // columnZero.forEach(cell => {
+  //   cell.addEventListener('click', handleColumnClick)
+  //   cell.style.backgroundColor = 'white'
+  // })
 
 
 
+  // function handleColumnClick(e) {
+  //   const cell = e.target.id
+  //   console.log(cell)
+  //   columnZero.push(cell).id
+  //   console.log(columnZero)
+  //   console.log(columnZero[columnZero.length - 1])
+
+  //   // create a for loop that returns the highest number
+  //   // looking to start athe array.lenth-1, and iterate backwards
+  //   for (let i = columnZero[columnZero.length - 1]; i >= 0; i--) {
+  //     console.log(columnZero[i])
+  //   }
+
+  // }
 
 
 
 
-  // nextPlayer()  
-  // Switch Players using a function?
-  // nextPlayer()
+
+
+
+
+  
 
 
 
