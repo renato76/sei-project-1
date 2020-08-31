@@ -30,26 +30,26 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background-color: #005eff;
-  border: 2px solid #013ea7;
+  /* background-color: #005eff;
+  border: 2px solid #013ea7; */
   padding: 20px; 
   height: 70vh;
   justify-content: center;
   /* padding: 30px 30px; */
   width: 600px;
-  box-shadow: -4px -4px 2px 0 #013288;
+  /* box-shadow: -4px -4px 2px 0 #013288; */
 }
 
 .grid div {
   border: 7px solid #005eff;
   /* background-color: #d8d8d8;  */
-  box-shadow: inset -1px -6px 0 #0146bd;  
-  border-radius: 50%;
+  /* box-shadow: inset -1px -6px 0 #0146bd;   */
+  /* border-radius: 50%; */
   flex-grow: 1;
   padding: 20px 20px;
   height: 16.67%;
   width: 14.28%;
-}
+} 
 
 .right-sidebar {
   display: flex;
@@ -65,7 +65,7 @@ body {
 
 .player-two {
   background-color: red;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 h3,
