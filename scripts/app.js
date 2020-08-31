@@ -2,7 +2,7 @@ function init() {
   // let currentPlayer, scores
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
-  const currentPlayer = document.querySelector('#current-player')
+  // const currentPlayer = document.querySelector('#current-player')
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
@@ -78,46 +78,28 @@ function init() {
       [38, 32, 26, 20], [3, 11, 19, 27], [2, 10, 18, 26], [10, 18, 26, 34], [1, 9, 17, 25], [9, 17, 25, 33], 
       [17, 25, 33, 41], [0, 8, 16, 24], [8, 16, 24, 32], [16, 24, 32, 40], [7, 15, 23, 31], [15, 23, 31, 39],
       [14, 22, 30, 38]
-
-
-
     ]
+    // now take the 4 values in each winning array and plug into our cells array
+    for (let i = 0; i < winningArrays.length; i++)  {
+      const cellsOne = cells[winningArrays[i][0]]
+      const cellsTwo = cells[winningArrays[i][1]]
+      const cellsThree = cells[winningArrays[i][2]]
+      const cellsFour = cells[winningArrays[i][3]]
+      // now check these arrays to see if they hasve classList of player-one
+      if (cellsOne.classList.contains('player-one') &&
+          cellsTwo.classList.contains('player-one') &&
+          cellsThree.classList.contains('player-one') &&
+          cellsFour.classList.contains('player-one')) {
+        result.innerHTML = 'Player 1 Wins!'
+      
+      // now check these arrays to see if they have classList of player-two
+      } else if (cellsOne.classList.contains('player-two') &&
+              cellsTwo.classList.contains('player-two') &&
+              cellsThree.classList.contains('player-two') &&
+              cellsFour.classList.contains('player-two')) {
+        result.innerHTML = 'Player 2 Wins!'
+      }  
+    } 
   }
-
-
-
-
-
-  // const findEmptyCell = column => {
-  //   const cellNumbers = cells.filter(cell => {
-  //     return cell.id % grid === column && cell.classList.length === 0
-  //   })
-  //   // console.log(cellNumbers[cellNumbers.length - 1])
-  // }
-  // console.log(colArray)
-  // console.log(colArray[colArray.length - 1])
-  // I have now created a Column Zero Array using a loop
-  //   Just to try and get it working on one column 
-  // const columnZero = []
-  // for (let i = 0; i < cells.length; i += 7) {
-  //   columnZero.push(cells[i])
-  // }
-  // // console.log(columnZero)  
-  // Added Event listener for columnZero
-  // columnZero.forEach(cell => {
-  //   cell.addEventListener('click', handleColumnClick)
-  // })
-  // function handleColumnClick(e) {
-  //   const cell = e.target.id
-  //   console.log(cell)
-  //   columnZero.push(cell).id
-  // console.log(columnZero)
-  // console.log(columnZero[columnZero.length - 1])
-  // create a for loop that returns the highest number
-  // looking to start athe array.lenth-1, and iterate backwards
-  // for (let i = columnZero[columnZero.length - 1]; i >= 0; i--) {
-  //   console.log(columnZero[i])
-  // }
-  // }
 }
 window.addEventListener('DOMContentLoaded', init)
