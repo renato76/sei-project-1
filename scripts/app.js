@@ -2,7 +2,8 @@ function init() {
   // let currentPlayer, scores
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
-  // const currentPlayer = document.querySelector('#current-player')
+  let score1 = document.querySelector('score1')
+  let score2 = document.querySelector('score2')
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
@@ -50,12 +51,16 @@ function init() {
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
+      checkForWinner()
       return cells[currentCell].classList.add('player-one') 
     } else if (!isPlayerOne && isCellEmpty(currentCell) ) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
+      checkForWinner()
       return cells[currentCell].classList.add('player-two') 
     }
   }
+
+  
 
   function checkForWinner() {
     const winningArrays = [
@@ -85,21 +90,38 @@ function init() {
       const cellsTwo = cells[winningArrays[i][1]]
       const cellsThree = cells[winningArrays[i][2]]
       const cellsFour = cells[winningArrays[i][3]]
-      // now check these arrays to see if they hasve classList of player-one
+      // now check these arrays to see if they have classList of player-one
       if (cellsOne.classList.contains('player-one') &&
           cellsTwo.classList.contains('player-one') &&
           cellsThree.classList.contains('player-one') &&
           cellsFour.classList.contains('player-one')) {
         result.innerHTML = 'Player 1 Wins!'
+        console.log('player one wins')
+        score1 += 1
       
       // now check these arrays to see if they have classList of player-two
-      } else if (cellsOne.classList.contains('player-two') &&
+      } if (cellsOne.classList.contains('player-two') &&
               cellsTwo.classList.contains('player-two') &&
               cellsThree.classList.contains('player-two') &&
               cellsFour.classList.contains('player-two')) {
         result.innerHTML = 'Player 2 Wins!'
+        console.log('player two wins')
+        score2 += 1
       }  
     } 
   }
+
+  // // Add scores 
+  // function p1Wins() {
+  //   score1.innerHTML = score1 += 1
+  // }
+  // function p2Wins() {
+  //   score1.innerHTML = score2 += 1
+  // }
+
+
+
+
+
 }
 window.addEventListener('DOMContentLoaded', init)
