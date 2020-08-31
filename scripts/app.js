@@ -2,8 +2,11 @@ function init() {
   // let currentPlayer, scores
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
-  let score1 = document.querySelector('score1')
-  let score2 = document.querySelector('score2')
+  const currentPlayer = document.querySelector('#current-player')
+  let score1 = document.querySelector('#score1')
+  let score2 = document.querySelector('#score2')
+  score1 = 0
+  score2 = 0
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
@@ -97,7 +100,9 @@ function init() {
           cellsFour.classList.contains('player-one')) {
         result.innerHTML = 'Player 1 Wins!'
         console.log('player one wins')
-        score1 += 1
+        score1++
+        return score1.innerHTML = score1
+        
       
       // now check these arrays to see if they have classList of player-two
       } if (cellsOne.classList.contains('player-two') &&
@@ -106,22 +111,12 @@ function init() {
               cellsFour.classList.contains('player-two')) {
         result.innerHTML = 'Player 2 Wins!'
         console.log('player two wins')
-        score2 += 1
+        score2++
+        return score2.innerHTML = score2
       }  
     } 
   }
-
-  // // Add scores 
-  // function p1Wins() {
-  //   score1.innerHTML = score1 += 1
-  // }
-  // function p2Wins() {
-  //   score1.innerHTML = score2 += 1
-  // }
-
-
-
-
+  
 
 }
 window.addEventListener('DOMContentLoaded', init)

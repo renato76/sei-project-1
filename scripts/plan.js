@@ -97,6 +97,29 @@ Massive If else statement to check all the possible winning combinations:
 21 possible wins vertically
 24 possible wins diagonally
 
+squares.forEach(cell => {
+    cell.addEventListener('click', handleClick)
+  }) 
+  function handleClick()  {
+    for (let i = 0; i < squares.length; i++)
+      if (squares[i + 7].classList.contains('taken')) {
+        if (currentPlayer === 1)  {
+          squares[i].classList.add('taken')
+          squares[i].classList.add('player-one')
+          // change player
+          currentPlayer = 2
+          displayCurrentPlayer.innerHTML = currentPlayer
+        } else if (currentPlayer === 2) {
+          squares[i].classList.add('taken')
+          squares[i].classList.add('player-two')
+          // change player
+          currentPlayer = 1
+          displayCurrentPlayer.innerHTML = currentPlayer
+        }
+        // if square not
+      } else return
+  }
+  handleClick()
 
 
 
