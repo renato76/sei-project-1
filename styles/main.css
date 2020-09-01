@@ -17,7 +17,7 @@ body {
 .grid-wrapper {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 3;
   align-items: center;
   height: 100vh;
   background-color: #d5d5d5;
@@ -38,6 +38,7 @@ body {
   /* padding: 30px 30px; */
   width: 600px;
   /* box-shadow: -4px -4px 2px 0 #013288; */
+  flex-grow: 1;
 }
 
 .grid div {
@@ -45,7 +46,6 @@ body {
   /* background-color: #d8d8d8;  */
   /* box-shadow: inset -1px -6px 0 #0146bd;   */
   /* border-radius: 50%; */
-  flex-grow: 1;
   padding: 20px 20px;
   height: 16.67%;
   width: 14.28%;
@@ -54,7 +54,7 @@ body {
 .right-sidebar {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  flex-grow: 3;
   background-color: rgb(98, 0, 211);
 }
 
@@ -68,11 +68,29 @@ body {
   border-radius: 10px;
 }
 
+button {
+  padding: 8px 20px;
+  margin: 0 auto;
+}
+
 h3,
-h2 {
+h2,
+h1 {
   color: white;
+}
+
+h4 {
+  color: #fff;
+  margin: 5px auto;
 }
 
 .right-sidebar {
   padding: 20px;
+}
+
+#current {
+  display: flex;;
+  height: 100%;
+  width: 50px;
+  border-radius: 50%;
 }

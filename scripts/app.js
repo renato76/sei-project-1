@@ -2,11 +2,15 @@ function init() {
   // let currentPlayer, scores
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
-  const currentPlayer = document.querySelector('#current-player')
-  let score1 = document.querySelector('#score1')
-  let score2 = document.querySelector('#score2')
-  score1 = 0
-  score2 = 0
+  const currentPlayer = document.querySelector('#current')
+  currentPlayer.style.backgroundColor = 'yellow'
+  currentPlayer.style.height = '50px'
+
+
+  // const updateScore = document.querySelector('.score').innerHTML = score1, score2
+
+  let score1 = 0
+  let score2 = 0
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
@@ -42,6 +46,7 @@ function init() {
     const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
     const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom row
+    
     // * this checks if the cell below has a counter on it or not, if it doesnt then you cant click above it
     if (!colArray.includes(currentCell + width) && !isBottomRow) return
     // * this checks if the colArray already includes the id of the cell thats been clicked, only adds it if its a new cell
@@ -54,11 +59,13 @@ function init() {
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
-      checkForWinner()
+      checkForWinner() 
+      currentPlayer.style.backgroundColor = 'red'
       return cells[currentCell].classList.add('player-one') 
     } else if (!isPlayerOne && isCellEmpty(currentCell) ) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
       checkForWinner()
+      currentPlayer.style.backgroundColor = 'yellow'
       return cells[currentCell].classList.add('player-two') 
     }
   }
@@ -98,25 +105,23 @@ function init() {
           cellsTwo.classList.contains('player-one') &&
           cellsThree.classList.contains('player-one') &&
           cellsFour.classList.contains('player-one')) {
-        result.innerHTML = 'Player 1 Wins!'
-        console.log('player one wins')
+        result.innerHTML = 'Yellow Wins!'
+        console.log('Yellow wins')
         score1++
-        return score1.innerHTML = score1
-        
+        document.querySelector('#score1').textContent = score1
       
       // now check these arrays to see if they have classList of player-two
       } if (cellsOne.classList.contains('player-two') &&
               cellsTwo.classList.contains('player-two') &&
               cellsThree.classList.contains('player-two') &&
               cellsFour.classList.contains('player-two')) {
-        result.innerHTML = 'Player 2 Wins!'
-        console.log('player two wins')
+        result.innerHTML = 'Red Wins!'
+        console.log('Red wins')
         score2++
-        return score2.innerHTML = score2
+        document.querySelector('#score2').textContent = score2
       }  
     } 
   }
-  
 
 }
 window.addEventListener('DOMContentLoaded', init)
