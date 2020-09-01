@@ -1,10 +1,14 @@
 function init() {
+
+
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
   const currentPlayer = document.querySelector('#current')
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
 
+  const reset = document.querySelector('#reset')
+  reset.addEventListener('click', newGame)
 
   let score1 = 0
   document.querySelector('#score1').textContent = score1
@@ -12,12 +16,14 @@ function init() {
   document.querySelector('#score2').textContent = score2
 
   const cells = []
+
   const width = 7 // how many cells wide is the grid
   const height = 6
   const gridCellCount = width * height // how many cells we want
 
   // * using this to keep track of the current player
   let isPlayerOne = true
+  
 
   // Function to create the playing grid
   function createGrid() {
@@ -27,10 +33,13 @@ function init() {
       cell.textContent = i
       cells.push(cell)
       grid.appendChild(cell)
+      cells.backgroundColor = 'blue'
     }
+    
     // console.log('cells', cells)
   }
   createGrid()
+
   // Event listener to listen for each cell that is clicked
   // Function to find first empty cell available and place player1 or player2 color background
   cells.forEach(cell => {
@@ -44,11 +53,10 @@ function init() {
     return result
   }
   function handleClick(e) { 
-    checkForWinner()
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
-    const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom rowx
+    const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom row   
     // * this checks if the cell below has a counter on it or not, if it doesnt then you cant click above it
     if (!colArray.includes(currentCell + width) && !isBottomRow) return 
     // * this checks if the colArray already includes the id of the cell thats been clicked, only adds it if its a new cell
@@ -63,12 +71,14 @@ function init() {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
       currentPlayer.style.backgroundColor = 'red'
       cells[currentCell].classList.add('player-one') 
+      cells[currentCell].style.backgroundColor = 'yellow'
       return checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell) ) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
       currentPlayer.style.backgroundColor = 'yellow'
       cells[currentCell].classList.add('player-two') 
-      return checkForWinner()
+      cells[currentCell].style.backgroundColor = 'red'     
+      return checkForWinner()     
     } 
   }
 
@@ -113,6 +123,10 @@ function init() {
         document.querySelector('#score1').textContent = score1
         document.querySelector('h4').innerHTML = 'Game Over!'
         currentPlayer.style.backgroundColor = '#6200d3'
+        // Make all cells unclickable when there is a winner
+        cells.forEach(cell => {
+          cell.removeEventListener('click', handleClick)
+        }) 
       
       // and check these arrays to see if they have classList of player-two
       } if (cellsOne.classList.contains('player-two') &&
@@ -125,15 +139,23 @@ function init() {
         document.querySelector('#score2').textContent = score2
         document.querySelector('h4').innerHTML = 'Game Over!'
         currentPlayer.style.backgroundColor = '#6200d3'
+        // Make all cells unclickable when there is a winner
+        cells.forEach(cell => {
+          cell.removeEventListener('click', handleClick)
+        }) 
       }  
     } 
+
   }
 
   // Create a New Game function that is called on the New Game button
+  function newGame()  {
+    console.log('I am being clicked!')
+    cells.forEach(cell => {
+      cell.setAttribute = ''
+    })
+  }
 
-
-
-  // Make all cells unclickable when there is a winner
   
 
 }
