@@ -1,5 +1,4 @@
 function init() {
-  // let currentPlayer, scores
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
   const currentPlayer = document.querySelector('#current')
@@ -7,16 +6,19 @@ function init() {
   currentPlayer.style.height = '50px'
 
 
-  // const updateScore = document.querySelector('.score').innerHTML = score1, score2
-
   let score1 = 0
+  document.querySelector('#score1').textContent = score1
   let score2 = 0
+  document.querySelector('#score2').textContent = score2
+
   const cells = []
   const width = 7 // how many cells wide is the grid
   const height = 6
   const gridCellCount = width * height // how many cells we want
+
   // * using this to keep track of the current player
   let isPlayerOne = true
+
   // Function to create the playing grid
   function createGrid() {
     for (let i = 0; i < gridCellCount; i++) { // this adds id number to each cell / div
@@ -41,14 +43,14 @@ function init() {
     console.log('isCellEmpty', result)
     return result
   }
-  function handleClick(e) {
+  function handleClick(e) { 
+    checkForWinner()
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
-    const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom row
-    
+    const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom rowx
     // * this checks if the cell below has a counter on it or not, if it doesnt then you cant click above it
-    if (!colArray.includes(currentCell + width) && !isBottomRow) return
+    if (!colArray.includes(currentCell + width) && !isBottomRow) return 
     // * this checks if the colArray already includes the id of the cell thats been clicked, only adds it if its a new cell
     if (!colArray.includes(currentCell)){
       colArray.push(currentCell).id
@@ -59,18 +61,18 @@ function init() {
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
-      checkForWinner() 
       currentPlayer.style.backgroundColor = 'red'
-      return cells[currentCell].classList.add('player-one') 
+      cells[currentCell].classList.add('player-one') 
+      return checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell) ) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
-      checkForWinner()
       currentPlayer.style.backgroundColor = 'yellow'
-      return cells[currentCell].classList.add('player-two') 
-    }
+      cells[currentCell].classList.add('player-two') 
+      return checkForWinner()
+    } 
   }
 
-  
+  // Lets check for winning arrays!
 
   function checkForWinner() {
     const winningArrays = [
@@ -107,21 +109,32 @@ function init() {
           cellsFour.classList.contains('player-one')) {
         result.innerHTML = 'Yellow Wins!'
         console.log('Yellow wins')
-        score1++
+        score1 += 1
         document.querySelector('#score1').textContent = score1
+        document.querySelector('h4').innerHTML = 'Game Over!'
+        currentPlayer.style.backgroundColor = '#6200d3'
       
-      // now check these arrays to see if they have classList of player-two
+      // and check these arrays to see if they have classList of player-two
       } if (cellsOne.classList.contains('player-two') &&
               cellsTwo.classList.contains('player-two') &&
               cellsThree.classList.contains('player-two') &&
               cellsFour.classList.contains('player-two')) {
         result.innerHTML = 'Red Wins!'
         console.log('Red wins')
-        score2++
+        score2 += 1
         document.querySelector('#score2').textContent = score2
+        document.querySelector('h4').innerHTML = 'Game Over!'
+        currentPlayer.style.backgroundColor = '#6200d3'
       }  
     } 
   }
+
+  // Create a New Game function that is called on the New Game button
+
+
+
+  // Make all cells unclickable when there is a winner
+  
 
 }
 window.addEventListener('DOMContentLoaded', init)
