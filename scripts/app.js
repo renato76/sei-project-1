@@ -54,7 +54,7 @@ function init() {
   }
   function handleClick(e) { 
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
-    const column = currentCell % width
+    // const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
     const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom row   
     // * this checks if the cell below has a counter on it or not, if it doesnt then you cant click above it
@@ -152,7 +152,9 @@ function init() {
   function newGame()  {
     console.log('I am being clicked!')
     cells.forEach(cell => {
-      cell.setAttribute = ''
+      cell.classList.remove('#player-one')
+      cell.style.backgroundColor = 'grey' 
+      cell.addEventListener('click', handleClick)
     })
   }
 
