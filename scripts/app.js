@@ -30,10 +30,9 @@ function init() {
     for (let i = 0; i < gridCellCount; i++) { // this adds id number to each cell / div
       const cell = document.createElement('div')
       cell.setAttribute('id', i)
-      cell.textContent = i
+      // cell.textContent = i
       cells.push(cell)
       grid.appendChild(cell)
-      cells.backgroundColor = 'blue'
     }
     
     // console.log('cells', cells)
@@ -45,7 +44,7 @@ function init() {
   cells.forEach(cell => {
     cell.addEventListener('click', handleClick)
   }) 
-  const colArray = []
+  let colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') || !cells[Number(currentCell)].classList.contains('player-two')
@@ -145,17 +144,19 @@ function init() {
         }) 
       }  
     } 
-
   }
 
   // Create a New Game function that is called on the New Game button
   function newGame()  {
     console.log('I am being clicked!')
     cells.forEach(cell => {
-      cell.classList.remove('#player-one')
-      cell.style.backgroundColor = 'grey' 
       cell.addEventListener('click', handleClick)
-    })
+      cell.classList.remove('player-one', 'player-two')
+      cell.style.backgroundColor = '#d5d5d5'
+      result.innerHTML = ''
+      document.querySelector('h4').innerHTML = 'Next Player'
+      currentPlayer.style.backgroundColor = 'yellow'
+    }) 
   }
 
   

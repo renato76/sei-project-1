@@ -15,6 +15,7 @@ body {
 }
 
 .grid-wrapper {
+
   display: flex;
   flex-direction: column;
   flex-grow: 3;
@@ -32,7 +33,7 @@ body {
   align-items: center;
   background-color: #005eff;
   border: 2px solid #013ea7;
-  padding: 20px; 
+  border-radius: 5px;
   height: 70vh;
   justify-content: center;
   padding: 30px 30px;
@@ -72,6 +73,9 @@ body {
 button {
   padding: 8px 20px;
   margin: 0 auto;
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
 }
 
 h3,
@@ -105,6 +109,8 @@ h4 {
   background-color: #5401b3;
   padding: 10px 50px;
   margin-bottom: 70px;
+  border-radius: 5px;
+  
 }
 
 .result {
@@ -112,3 +118,5 @@ h4 {
   justify-content: center;
   font-size: 35px;
 }
+
+
