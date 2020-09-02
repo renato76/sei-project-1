@@ -122,7 +122,7 @@ function init() {
         score1 += 1
         document.querySelector('#score1').textContent = score1
         document.querySelector('h4').innerHTML = 'Game Over!'
-        currentPlayer.style.backgroundColor = '#6200d3'
+        currentPlayer.style.backgroundColor = 'yellow'
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)
@@ -133,12 +133,12 @@ function init() {
               cellsTwo.classList.contains('player-two') &&
               cellsThree.classList.contains('player-two') &&
               cellsFour.classList.contains('player-two')) {
-        result.innerHTML = 'Red Wins!'
-        console.log('Red wins')
+        result.innerHTML = 'Blue Wins!'
+        console.log('Blue wins')
         score2 += 1
         document.querySelector('#score2').textContent = score2
         document.querySelector('h4').innerHTML = 'Game Over!'
-        currentPlayer.style.backgroundColor = '#6200d3'
+        currentPlayer.style.backgroundColor = '#005eff'
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)

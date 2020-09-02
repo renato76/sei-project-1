@@ -1,6 +1,23 @@
 * {
   box-sizing: border-box;
 }
+
+h3,
+h2,
+h1 {
+  color: white;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h4 {
+  color: #fff;
+  margin: 5px auto;
+  font-size: 29px;
+}
+
 body {
   
   height: 100vh;
@@ -23,11 +40,11 @@ body {
   flex-grow: 3;
   align-items: center;
   height: 100vh;
-  width: 65%;
+  width: 70%;
   background-color: #d5d5d5;
   padding: 160px 50px;
   margin: 0;
-  box-shadow: 20 0 20px 0 rgba(237, 237, 237, 0.2);
+  box-shadow: 20 0 20px 0 #ededed33;
   
 }
 
@@ -42,14 +59,14 @@ body {
   justify-content: center;
   padding: 30px 30px;
   width: 550px;
-  box-shadow: -4px -4px 2px 0 #363637;
+  box-shadow: -6px -6px 2px 0 #212121;
   flex-grow: 1;
 }
 
 .grid div {
-  border: 7px solid #484848;
+  border: 7px solid #2d2d2d;
   background-color: #d8d8d8; 
-  /* box-shadow: inset -1px -6px 0 #0146bd;   */
+  /* box-shadow: inset -1px -6px 0 #212121;   */
   border-radius: 50%;
   padding: 20px 20px;
   height: 16.67%;
@@ -62,6 +79,9 @@ body {
   flex-direction: column;
   flex-grow: 3;
   background-color: #005eff;
+  padding: 70px 30px 50px 30px;
+  border-left: 5px solid yellow;
+  /* background-image: url('blue-space.jpg'); */
 }
 
 .player-one {
@@ -75,31 +95,30 @@ body {
 }
 
 button {
+  font-weight: bold;
+  font-size: 15px;;
   padding: 8px 20px;
   margin: 0 auto;
   width: 150px;
   height: 40px;
   border-radius: 3px;
+  border: 0.1em solid #d3d3d3;
+  background-color: #d3d3d3;
+  color: #373737;
+  transition: all 0.2s;
 }
 
-h3,
-h2,
-h1 {
-  color: white;
-}
-
-h1 {
-  font-size: 40px;
-}
-
-h4 {
-  color: #fff;
-  margin: 5px auto;
-  font-size: 29px;
-}
-
-.right-sidebar {
-  padding: 70px 20px 50px 20px;
+button:hover {
+  font-weight: bold;
+  font-size: 15px;;
+  padding: 8px 20px;
+  margin: 0 auto;
+  width: 150px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #fcfcfc;
+  border: 0.1em solid #919191;
+  color: #373737;
 }
 
 #current {
@@ -110,16 +129,25 @@ h4 {
 }
 
 .score {
+  text-align: center;
   padding-top: 40px;
   background-color: #0050da;
   padding: 10px 50px;
   margin-bottom: 70px;
   border-radius: 5px;
-  
+  box-shadow: -4px -4px 2px 0 #003ba2;
 }
 
 .result {
   display: flex;
   justify-content: center;
   font-size: 26px;
+}
+
+.next-player {
+  text-align: center;
+  background-color: #3e3e3e;
+  border-radius: 3px;
+  box-shadow: -4px -4px 2px 0 #242424;
+  padding: 8px 12px;
 }
