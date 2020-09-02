@@ -68,7 +68,7 @@ function init() {
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
-      currentPlayer.style.backgroundColor = 'red'
+      currentPlayer.style.backgroundColor = '#005eff'
       cells[currentCell].classList.add('player-one') 
       cells[currentCell].style.backgroundColor = 'yellow'
       return checkForWinner() 
@@ -76,7 +76,7 @@ function init() {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
       currentPlayer.style.backgroundColor = 'yellow'
       cells[currentCell].classList.add('player-two') 
-      cells[currentCell].style.backgroundColor = 'red'     
+      cells[currentCell].style.backgroundColor = '#005eff'     
       return checkForWinner()     
     } 
   }
@@ -149,6 +149,8 @@ function init() {
   // Create a New Game function that is called on the New Game button
   function newGame()  {
     console.log('I am being clicked!')
+    // used the cells for each, and re-applied the handleclick, then reset things back to start
+    // whilst keeping the scores intact
     cells.forEach(cell => {
       cell.addEventListener('click', handleClick)
       cell.classList.remove('player-one', 'player-two')
