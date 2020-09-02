@@ -47,7 +47,7 @@ function init() {
   const colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
-    const result = !cells[Number(currentCell)].classList.contains('player-one') || !cells[Number(currentCell)].classList.contains('player-two')
+    const result = !cells[Number(currentCell)].classList.contains('player-one') && !cells[Number(currentCell)].classList.contains('player-two')
     console.log('isCellEmpty', result)
     return result
   }
@@ -70,13 +70,13 @@ function init() {
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
       currentPlayer.style.backgroundColor = '#005eff'
-      cells[currentCell].classList.add('player-one') 
+      cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-one') 
       cells[currentCell].style.backgroundColor = 'yellow'
       return checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
       currentPlayer.style.backgroundColor = 'yellow'
-      cells[currentCell].classList.add('player-two') 
+      cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-two') 
       cells[currentCell].style.backgroundColor = '#005eff'     
       return checkForWinner()     
     } 
@@ -112,6 +112,9 @@ function init() {
       const cellsTwo = cells[winningArrays[i][1]]
       const cellsThree = cells[winningArrays[i][2]]
       const cellsFour = cells[winningArrays[i][3]]
+      if (isCellEmpty)  {
+        console.log('Its a draw')
+      }
       // now check these arrays to see if they have classList of player-one
       if (cellsOne.classList.contains('player-one') &&
           cellsTwo.classList.contains('player-one') &&
@@ -154,11 +157,12 @@ function init() {
     // whilst keeping the scores intact
     cells.forEach(cell => {
       cell.addEventListener('click', handleClick)
-      cell.classList.remove('player-one', 'player-two')
+      cell.classList.remove('animate__animated', 'animate__bounceInDown', 'player-one', 'player-two') 
       cell.style.backgroundColor = '#d5d5d5'
       result.innerHTML = ''
       document.querySelector('h4').innerHTML = 'Next Player'
-      currentPlayer.style.backgroundColor = 'yellow'
+      // currentPlayer.style.backgroundColor = 'yellow'
+      isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
   }
 
