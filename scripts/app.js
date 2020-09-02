@@ -66,22 +66,24 @@ function init() {
     }
     if (colArray.length === 42) {
       document.querySelector('h4').innerHTML = 'Its a draw!'
-      currentPlayer.style.backgroundColor = '#3e3e3e'
+      // currentPlayer.style.backgroundColor = '#3e3e3e'
     }
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
-      currentPlayer.style.backgroundColor = '#005eff'
+      setTimeout(() => {
+        currentPlayer.style.backgroundColor = '#005eff'
+      }, 1100)     
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-one') 
-      cells[currentCell].style.backgroundColor = 'yellow'
-      return checkForWinner() 
+      checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
-      currentPlayer.style.backgroundColor = 'yellow'
+      setTimeout(() => {
+        currentPlayer.style.backgroundColor = 'yellow'
+      }, 1100)  
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-two') 
-      cells[currentCell].style.backgroundColor = '#005eff'     
       return checkForWinner()     
     } 
   }
@@ -119,6 +121,7 @@ function init() {
       // draw logic
       if (!isCellEmpty)  {
         console.log('Its a draw')
+        // currentPlayer.style.backgroundColor = '#3e3e3e'
         document.querySelector('h4').innerHTML = 'Its a Draw!'
       }
       // now check these arrays to see if they have classList of player-one
@@ -156,6 +159,7 @@ function init() {
     } 
   }
 
+
   // Create a New Game function that is called on the New Game button
   function newGame()  {
     console.log('I am being clicked!')
@@ -164,10 +168,8 @@ function init() {
     cells.forEach(cell => {
       cell.addEventListener('click', handleClick)
       cell.classList.remove('animate__animated', 'animate__bounceInDown', 'player-one', 'player-two') 
-      cell.style.backgroundColor = '#d5d5d5'
       result.innerHTML = ''
       document.querySelector('h4').innerHTML = 'Next Player'
-      // currentPlayer.style.backgroundColor = 'yellow'
       isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
   }

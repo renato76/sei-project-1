@@ -42,7 +42,7 @@ body {
   height: 100vh;
   width: 70%;
   background-color: #d5d5d5;
-  padding: 160px 50px;
+  padding: 60px 50px 220px 50px;
   margin: 0;
   box-shadow: 20 0 20px 0 #ededed33;
   
@@ -64,7 +64,7 @@ body {
 }
 
 .grid div {
-  border: 7px solid #5c5c5c;
+  border: 7px solid #484848;
   background-color: #e8e6e6; 
   /* box-shadow: inset -1px -6px 0 #212121;   */
   border-radius: 50%;
@@ -84,10 +84,10 @@ body {
   /* background-image: url('blue-space.jpg'); */
 }
 
-.empty-cell {
-  background-color: #e6e6e6;
+/* .empty-cell {
+  background-color: ç;
   border-radius: 50%;
-}
+} */
 
 .animate__animated.animate__bounceInDown.player-one {
   --animate-duration: 1.8s;
@@ -95,12 +95,20 @@ body {
   border-radius: 50%;
 }
 
-
 .animate__animated.animate__bounceInDown.player-two {
   --animate-duration: 1.8s;
-  background-color: rgb(29, 15, 225);
+  background-color: #005eff;
   border-radius: 50%;
 }
+
+/* .animate__animated.animate__fadeOut.player-one,
+.animate__animated.animate__fadeOut.player-two {
+  --animate-duration: 1.8s;
+  background-color: #005eff;
+  border-radius: 50%;
+} */
+
+
 
 button {
   font-weight: bold;
