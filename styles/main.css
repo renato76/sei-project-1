@@ -89,19 +89,18 @@ body {
   border-radius: 50%;
 }
 
+.animate__animated.animate__bounceInDown.player-one {
+  --animate-duration: 1.8s;
+  background-color: yellow;
+  border-radius: 50%;
+}
 
-  .animate__animated.animate__bounceInDown.player-one {
-    --animate-duration: 1.8s;
-    background-color: yellow;
-    border-radius: 50%;
-  }
 
-
-  .animate__animated.animate__bounceInDown.player-two {
-    --animate-duration: 1.8s;
-    background-color: rgb(29, 15, 225);
-    border-radius: 50%;
-  }
+.animate__animated.animate__bounceInDown.player-two {
+  --animate-duration: 1.8s;
+  background-color: rgb(29, 15, 225);
+  border-radius: 50%;
+}
 
 button {
   font-weight: bold;

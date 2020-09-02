@@ -64,6 +64,10 @@ function init() {
       console.log(colArray)
       // console.log(currentCell.id)
     }
+    if (colArray.length === 42) {
+      document.querySelector('h4').innerHTML = 'Its a draw!'
+      currentPlayer.style.backgroundColor = '#3e3e3e'
+    }
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
     // * the else if does the reverse so is checking if the current player is 2
@@ -112,8 +116,10 @@ function init() {
       const cellsTwo = cells[winningArrays[i][1]]
       const cellsThree = cells[winningArrays[i][2]]
       const cellsFour = cells[winningArrays[i][3]]
-      if (isCellEmpty)  {
+      // draw logic
+      if (!isCellEmpty)  {
         console.log('Its a draw')
+        document.querySelector('h4').innerHTML = 'Its a Draw!'
       }
       // now check these arrays to see if they have classList of player-one
       if (cellsOne.classList.contains('player-one') &&
