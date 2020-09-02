@@ -44,7 +44,7 @@ function init() {
   cells.forEach(cell => {
     cell.addEventListener('click', handleClick)
   }) 
-  let colArray = []
+  const colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') || !cells[Number(currentCell)].classList.contains('player-two')
@@ -62,6 +62,7 @@ function init() {
     if (!colArray.includes(currentCell)){
       colArray.push(currentCell).id
       console.log(colArray)
+      // console.log(currentCell.id)
     }
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
@@ -72,7 +73,7 @@ function init() {
       cells[currentCell].classList.add('player-one') 
       cells[currentCell].style.backgroundColor = 'yellow'
       return checkForWinner() 
-    } else if (!isPlayerOne && isCellEmpty(currentCell) ) {
+    } else if (!isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
       currentPlayer.style.backgroundColor = 'yellow'
       cells[currentCell].classList.add('player-two') 

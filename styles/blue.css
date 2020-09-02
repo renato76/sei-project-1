@@ -60,7 +60,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 3;
-  background-color: #6200d3;
+  background-color: #005eff;
 }
 
 .player-one {
@@ -69,7 +69,7 @@ body {
 }
 
 .player-two {
-  background-color: red;
+  background-color: #005eff;
   border-radius: 10px;
 }
 
@@ -109,7 +109,7 @@ h4 {
 }
 
 .score {
-  background-color: #5401b3;
+  background-color: #005eff;
   padding: 10px 50px;
   margin-bottom: 70px;
   border-radius: 5px;
