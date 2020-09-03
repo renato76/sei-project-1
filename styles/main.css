@@ -101,15 +101,6 @@ body {
   border-radius: 50%;
 }
 
-/* .animate__animated.animate__fadeOut.player-one,
-.animate__animated.animate__fadeOut.player-two {
-  --animate-duration: 1.8s;
-  background-color: #005eff;
-  border-radius: 50%;
-} */
-
-
-
 button {
   font-weight: bold;
   font-size: 15px;;

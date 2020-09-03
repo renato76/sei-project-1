@@ -1,23 +1,21 @@
 function init() {
-
-
   const grid = document.querySelector('.grid')
   const result = document.querySelector('#result')
   const currentPlayer = document.querySelector('#current')
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
-  const audio = document.querySelector('#audio')
-
-
-
+  // const audio = document.querySelector('#audio')
+  const solar = document.querySelector('#solar')
   const reset = document.querySelector('#reset')
   reset.addEventListener('click', newGame)
 
+  // Start scores at 0-0 and add them to the score textcontent area
   let score1 = 0
   document.querySelector('#score1').textContent = score1
   let score2 = 0
   document.querySelector('#score2').textContent = score2
 
+  // This is the cells array which we will push cells to, in order to create a grid
   const cells = []
 
   const width = 7 // how many cells wide is the grid
@@ -55,13 +53,14 @@ function init() {
     return result
   }
 
-
+  // This is the main click function
   function handleClick(e) { 
 
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     // const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
     const isBottomRow = (totalCells - currentCell - width) < 0 // * check if we are on the bottom row   
+
     // * this checks if the cell below has a counter on it or not, if it doesnt then you cant click above it
     if (!colArray.includes(currentCell + width) && !isBottomRow) return 
     // * this checks if the colArray already includes the id of the cell thats been clicked, only adds it if its a new cell
@@ -74,9 +73,11 @@ function init() {
       document.querySelector('h4').innerHTML = 'Its a draw!'
       currentPlayer.style.backgroundColor = '#3e3e3e'
     }
-    audio.src = './sounds/shoosh.wav'
-    audio.play()
-    // write an if statement that checks if there is a winner and insert into below code
+
+    // Some audio for each time a player chooses cell
+    // audio.src = './sounds/dubbly.wav'
+    // audio.play()
+
   
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
@@ -142,7 +143,7 @@ function init() {
         score1 += 1
         document.querySelector('#score1').textContent = score1
         document.querySelector('h4').innerHTML = 'Game Over!'
-        // currentPlayer.style.backgroundColor = '#3e3e3e'
+
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)
@@ -158,6 +159,7 @@ function init() {
         score2 += 1
         document.querySelector('#score2').textContent = score2
         document.querySelector('h4').innerHTML = 'Game Over!'
+
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)
@@ -166,10 +168,11 @@ function init() {
     } 
   }
 
-
-  // Create a New Game function that is called on the New Game button
+  // Create a reset function that is called on the New Game button
   function newGame()  {
     console.log('I am being clicked!')
+    solar.src = './sounds/firecracker.wav'
+    solar.play()
     // used the cells for each, and re-applied the handleclick, then reset things back to start
     // whilst keeping the scores intact
     cells.forEach(cell => {
@@ -177,11 +180,9 @@ function init() {
       cell.classList.remove('animate__animated', 'animate__bounceInDown', 'player-one', 'player-two') 
       result.innerHTML = ''
       document.querySelector('h4').innerHTML = 'Next Player'
+      // This switches starting player every time you restart, to make it fair!
       isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
-  }
-
-  
-
+  } 
 }
 window.addEventListener('DOMContentLoaded', init)
