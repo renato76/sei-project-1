@@ -6,6 +6,8 @@ function init() {
   const currentPlayer = document.querySelector('#current')
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
+  const audio = document.querySelector('#audio')
+
 
 
   const reset = document.querySelector('#reset')
@@ -44,6 +46,7 @@ function init() {
   cells.forEach(cell => {
     cell.addEventListener('click', handleClick)
   }) 
+
   const colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
@@ -54,6 +57,7 @@ function init() {
 
 
   function handleClick(e) { 
+
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     // const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
@@ -70,6 +74,8 @@ function init() {
       document.querySelector('h4').innerHTML = 'Its a draw!'
       currentPlayer.style.backgroundColor = '#3e3e3e'
     }
+    audio.src = './sounds/shoosh.wav'
+    audio.play()
     // write an if statement that checks if there is a winner and insert into below code
   
     // * first part checks if current player is player one and if the cell they clicked is empty
