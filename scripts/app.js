@@ -7,6 +7,7 @@ function init() {
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
 
+
   const reset = document.querySelector('#reset')
   reset.addEventListener('click', newGame)
 
@@ -23,7 +24,7 @@ function init() {
 
   // * using this to keep track of the current player
   let isPlayerOne = true
-  
+  let isWinner = false
 
   // Function to create the playing grid
   function createGrid() {
@@ -51,6 +52,8 @@ function init() {
     console.log('isCellEmpty', result)
     return result
   }
+
+
   function handleClick(e) { 
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     // const column = currentCell % width
@@ -68,18 +71,22 @@ function init() {
       document.querySelector('h4').innerHTML = 'Its a draw!'
       // currentPlayer.style.backgroundColor = '#3e3e3e'
     }
+    // write an if statement that checks if there is a winner and insert into below code
+  
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
     // * the else if does the reverse so is checking if the current player is 2
-    if (isPlayerOne && isCellEmpty(currentCell)) {
+    if (!isWinner && isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
+      // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = '#005eff'
       }, 1100)     
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-one') 
-      checkForWinner() 
-    } else if (!isPlayerOne && isCellEmpty(currentCell)) {
+      return checkForWinner() 
+    } else if (!isWinner && !isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
+      // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = 'yellow'
       }, 1100)  
@@ -118,6 +125,7 @@ function init() {
       const cellsTwo = cells[winningArrays[i][1]]
       const cellsThree = cells[winningArrays[i][2]]
       const cellsFour = cells[winningArrays[i][3]]
+      isWinner = true
       // draw logic
       if (!isCellEmpty)  {
         console.log('Its a draw')
@@ -129,12 +137,13 @@ function init() {
           cellsTwo.classList.contains('player-one') &&
           cellsThree.classList.contains('player-one') &&
           cellsFour.classList.contains('player-one')) {
+        isWinner = true
         result.innerHTML = 'Yellow Wins!'
         console.log('Yellow wins')
         score1 += 1
         document.querySelector('#score1').textContent = score1
         document.querySelector('h4').innerHTML = 'Game Over!'
-        currentPlayer.style.backgroundColor = 'yellow'
+        // currentPlayer.style.backgroundColor = 'yellow'
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)
@@ -145,12 +154,13 @@ function init() {
               cellsTwo.classList.contains('player-two') &&
               cellsThree.classList.contains('player-two') &&
               cellsFour.classList.contains('player-two')) {
+        isWinner = true
         result.innerHTML = 'Blue Wins!'
         console.log('Blue wins')
         score2 += 1
         document.querySelector('#score2').textContent = score2
         document.querySelector('h4').innerHTML = 'Game Over!'
-        currentPlayer.style.backgroundColor = '#005eff'
+        // currentPlayer.style.backgroundColor = '#005eff'
         // Make all cells unclickable when there is a winner
         cells.forEach(cell => {
           cell.removeEventListener('click', handleClick)
