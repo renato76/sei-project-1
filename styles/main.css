@@ -56,7 +56,7 @@ body {
   background-color: #323235; 
   opacity: 0.8;
   /* border: 2px solid #393838; */
-  border-radius: 15px;
+  border-radius: 3px;
   /* height: 90%; */
   justify-content: center;
   padding: 30px 30px;
@@ -70,7 +70,7 @@ body {
   background-color: #e8e6e6; 
   /* box-shadow: inset -1px -6px 0 #212121;   */
   border-radius: 50%;
-  padding: 20px 20px;
+  padding: 10px 20px;
   height: 16.67%;
   width: 14.28%;
 } 
@@ -164,17 +164,30 @@ button:hover {
 /*  Mobile Version  */
 
 @media screen and (max-width:550px) {
+  .main {
+    display: flex;
+    /* flex-grow: 1; */
+    flex-direction: column;
+    align-items: center;
+  }
 
   .grid-wrapper {
-    
+    display: flex;
+    /* flex-grow: 2; */
+    flex-direction: column;
+    align-items: center;
+    /* padding: 50px 30px; */
   }
   .grid {
+    max-width: 450px;
+    max-height: 380px;
     
   }
   .grid div {
-    
+    /* max-width: 60vw; */
   }
-
-
+  .grid-wrapper {
+    background-image: none;
+  }
 
 }
