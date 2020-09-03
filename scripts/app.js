@@ -4,7 +4,8 @@ function init() {
   const currentPlayer = document.querySelector('#current')
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
-  // const audio = document.querySelector('#audio')
+  const player1 = document.querySelector('#player1')
+  const player2 = document.querySelector('#player2')
   const solar = document.querySelector('#solar')
   const reset = document.querySelector('#reset')
   reset.addEventListener('click', newGame)
@@ -75,8 +76,7 @@ function init() {
     }
 
     // Some audio for each time a player chooses cell
-    // audio.src = './sounds/dubbly.wav'
-    // audio.play()
+    
 
   
     // * first part checks if current player is player one and if the cell they clicked is empty
@@ -87,7 +87,9 @@ function init() {
       // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = '#005eff'
-      }, 1100)     
+      }, 1100) 
+      player1.src = './sounds/shoosh.wav'
+      player1.play()    
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-one') 
       return checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell)) {
@@ -96,6 +98,8 @@ function init() {
       setTimeout(() => {
         currentPlayer.style.backgroundColor = 'yellow'
       }, 1100)  
+      player2.src = './sounds/light.wav'
+      player2.play() 
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-two') 
       return checkForWinner()     
     } 
