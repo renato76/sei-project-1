@@ -5,6 +5,9 @@ function init() {
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
 
+  // This is the main array that we will push clicked cell ids into see lines 73-76, needs to start empty
+  let colArray = []
+
   // ******  Audio   *******
   const player1 = document.querySelector('#player1')
   const player2 = document.querySelector('#player2')
@@ -50,14 +53,14 @@ function init() {
     cell.addEventListener('click', handleClick)
   }) 
 
-  const colArray = []
+  
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') && !cells[Number(currentCell)].classList.contains('player-two')
     console.log('isCellEmpty', result)
     return result
   }
-
+  
   // This is the main click function
   function handleClick(e) { 
     
@@ -173,9 +176,10 @@ function init() {
       }  
     } 
   }
-  console.log(colArray)
+  
   // Create a reset function that is called on the New Game button
   function newGame()  {
+    colArray = []
     // window.location.reload()
     solar.src = './sounds/firecracker.wav'
     solar.play()
@@ -191,6 +195,6 @@ function init() {
       // This switches starting player every time you restart, to make it fair!
       // isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
-  } console.log(colArray)
+  } 
 }
 window.addEventListener('DOMContentLoaded', init)
