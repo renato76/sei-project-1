@@ -50,7 +50,7 @@ function init() {
     cell.addEventListener('click', handleClick)
   }) 
 
-  let colArray = []
+  
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') && !cells[Number(currentCell)].classList.contains('player-two')
@@ -60,6 +60,7 @@ function init() {
 
   // This is the main click function
   function handleClick(e) { 
+    
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     // const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
@@ -77,13 +78,14 @@ function init() {
       document.querySelector('h4').innerHTML = 'Its a draw!'
       currentPlayer.style.backgroundColor = '#3e3e3e'
     }
-    colArray.length = 0
+  
 
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
     // * the else if does the reverse so is checking if the current player is 2
     if (isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = false // * reassigning isPlayerOne to false to switch player two to be the current player
+
       // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = '#005eff'
@@ -94,6 +96,7 @@ function init() {
       return checkForWinner() 
     } else if (!isPlayerOne && isCellEmpty(currentCell)) {
       isPlayerOne = true // * reassigning isPlayerOne to true to switch player one back to be the current player
+
       // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = 'yellow'
@@ -174,8 +177,6 @@ function init() {
   // Create a reset function that is called on the New Game button
   function newGame()  {
     // window.location.reload()
-    
-    console.log('I am being clicked!')
     solar.src = './sounds/firecracker.wav'
     solar.play()
     // used the cells for each, and re-applied the handleclick, then reset things back to start
