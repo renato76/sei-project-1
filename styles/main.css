@@ -109,8 +109,8 @@ button {
   font-weight: bold;
   padding: 8px 20px;
   margin: 0 auto;
-  width: 150px;
-  height: 40px;
+  width: 170px;
+  height: 50px;
   border-radius: 3px;
   border: 0.1em solid #d3d3d3;
   background-color: #d3d3d3;
@@ -120,11 +120,11 @@ button {
 
 button:hover {
   font-weight: bold;
-  font-size: 15px;;
+  font-size: 15px;
   padding: 8px 20px;
   margin: 0 auto;
-  width: 150px;
-  height: 40px;
+  width: 168px;
+  height: 48px;
   border-radius: 3px;
   background-color: #fcfcfc;
   border: 0.1em solid #919191;
