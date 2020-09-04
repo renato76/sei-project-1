@@ -50,7 +50,7 @@ function init() {
     cell.addEventListener('click', handleClick)
   }) 
 
-  const colArray = []
+  let colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') && !cells[Number(currentCell)].classList.contains('player-two')
@@ -60,7 +60,6 @@ function init() {
 
   // This is the main click function
   function handleClick(e) { 
-
     const currentCell = Number(e.target.id) // * change to a number here eliminates the need for repetition!
     // const column = currentCell % width
     const totalCells = width * height - 1 // * total number of cells on grid
@@ -78,11 +77,8 @@ function init() {
       document.querySelector('h4').innerHTML = 'Its a draw!'
       currentPlayer.style.backgroundColor = '#3e3e3e'
     }
+    colArray.length = 0
 
-    // Some audio for each time a player chooses cell
-    
-
-  
     // * first part checks if current player is player one and if the cell they clicked is empty
     // * if the cell is empty then it adds the player-one class
     // * the else if does the reverse so is checking if the current player is 2
@@ -177,6 +173,8 @@ function init() {
 
   // Create a reset function that is called on the New Game button
   function newGame()  {
+    // window.location.reload()
+    
     console.log('I am being clicked!')
     solar.src = './sounds/firecracker.wav'
     solar.play()
@@ -185,10 +183,12 @@ function init() {
     cells.forEach(cell => {
       cell.addEventListener('click', handleClick)
       cell.classList.remove('animate__animated', 'animate__bounceInDown', 'player-one', 'player-two') 
+      cell.removeAttribute('class')
       result.innerHTML = ''
       document.querySelector('h4').innerHTML = 'Next Player'
+
       // This switches starting player every time you restart, to make it fair!
-      isPlayerOne ? !isPlayerOne : isPlayerOne
+      // isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
   } 
 }
