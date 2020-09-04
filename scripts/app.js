@@ -4,9 +4,13 @@ function init() {
   const currentPlayer = document.querySelector('#current')
   currentPlayer.style.backgroundColor = 'yellow'
   currentPlayer.style.height = '50px'
+
+  // ******  Audio   *******
   const player1 = document.querySelector('#player1')
   const player2 = document.querySelector('#player2')
   const solar = document.querySelector('#solar')
+
+  // *****  New Game Button Function ******
   const reset = document.querySelector('#reset')
   reset.addEventListener('click', newGame)
 
