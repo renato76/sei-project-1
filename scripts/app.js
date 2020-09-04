@@ -50,7 +50,7 @@ function init() {
     cell.addEventListener('click', handleClick)
   }) 
 
-  
+  const colArray = []
   // * this function checks if the cell is empty or not and returns true or false
   function isCellEmpty(currentCell) {
     const result = !cells[Number(currentCell)].classList.contains('player-one') && !cells[Number(currentCell)].classList.contains('player-two')
