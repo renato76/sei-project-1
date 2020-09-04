@@ -173,7 +173,7 @@ function init() {
       }  
     } 
   }
-
+  console.log(colArray)
   // Create a reset function that is called on the New Game button
   function newGame()  {
     // window.location.reload()
@@ -191,6 +191,6 @@ function init() {
       // This switches starting player every time you restart, to make it fair!
       // isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
-  } 
+  } console.log(colArray)
 }
 window.addEventListener('DOMContentLoaded', init)
