@@ -87,7 +87,7 @@ function init() {
       // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = '#005eff'
-      }, 1100) 
+      }, 1200) 
       player1.src = './sounds/shoosh.wav'
       player1.play()    
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-one') 
@@ -97,14 +97,13 @@ function init() {
       // this delays the switching current player to line up with the coin drop delay
       setTimeout(() => {
         currentPlayer.style.backgroundColor = 'yellow'
-      }, 1100)  
+      }, 1200)  
       player2.src = './sounds/light.wav'
       player2.play() 
       cells[currentCell].classList.add('animate__animated', 'animate__bounceInDown', 'player-two') 
       return checkForWinner()     
     } 
   }
-
   // Lets check for winning arrays!
 
   function checkForWinner() {
