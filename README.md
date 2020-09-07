@@ -53,7 +53,7 @@ This was my first project from General Assembly's Web Development Immersive Cour
 
 ## **Check Out The GitHub Repo**
 
-<https://github.com/renato76/sei-project-1/settings>
+<https://github.com/renato76/sei-project-1>
 <br/>
 <br/>
 
