@@ -7,13 +7,12 @@
 * 2 player mode
 * Must keep scores
 * Must have a win logic.
-<br/>
-<br/>
+
 
 ### **Timeframe**
 
 * 7 days  
-<br/>
+
 
 ### **Technologies Used**
 
@@ -21,7 +20,7 @@
 * HTML5 + HTML5 Audio
 * CSS + CSS Animation
 * GitHub  
-<br/>
+
 
 ### **Dev Tools**
 
@@ -32,7 +31,7 @@
 * Chrome Developer Tools
 <br/>
 <br/>
-<br/>
+
 
 # **My Game - Connect 4**
 
