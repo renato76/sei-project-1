@@ -179,12 +179,13 @@ function init() {
   
   // Create a reset function that is called on the New Game button
   function newGame()  {
-    colArray = []
-    // window.location.reload()
+    colArray = [] // this removes the clicked cells' ID's from the array, so they can be cliked again!
+
+    // Audio for the New Game button
     solar.src = './sounds/firecracker.wav'
     solar.play()
-    // used the cells for each, and re-applied the handleclick, then reset things back to start
-    // whilst keeping the scores intact
+    // used cells for each, and re-applied the handleclick, then reset things back to start
+    // whilst keeping the scores intact, so removed the player one and player two classnames from each clicked cell
     cells.forEach(cell => {
       cell.addEventListener('click', handleClick)
       cell.classList.remove('animate__animated', 'animate__bounceInDown', 'player-one', 'player-two') 
