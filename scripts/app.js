@@ -74,8 +74,6 @@ function init() {
     // * this checks if the colArray already includes the id of the cell thats been clicked, only adds it if its a new cell
     if (!colArray.includes(currentCell)){
       colArray.push(currentCell).id
-      console.log(colArray)
-      // console.log(currentCell.id)
     }
     if (colArray.length === 42) {
       document.querySelector('h4').innerHTML = 'Its a draw!'
