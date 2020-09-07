@@ -31,6 +31,7 @@
 <br/>
 <br/>
 <br/>
+
 # **My Game - Connect 4**
 
 <img src="./images/connect4logo.png" width="350">
