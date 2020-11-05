@@ -1,3 +1,5 @@
+<img src="./styles/ga-logo.jpg" width="100" height="100">
+
 # SEI 50 Project 1 
 
 ## Goal: To create a single page, grid-based game
