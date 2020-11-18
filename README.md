@@ -1,10 +1,28 @@
 <img src="./styles/ga-logo.jpg" width="100" height="100">
 
-# SEI 50 Project 1 
+# SEI 50 Project 1  - Connect 4
+
+
+## Table of contents 
+
+* Project Brief
+* Overview 
+* Technologies Used
+* Launch App
+* Process
+* Challenges
+* Bugs
+* Wins
+* Future Features
+
+
+<br />
+
+# Project brief
 
 ## Goal: To create a single page, grid-based game
 
-## Features Required: 
+### Features Required: 
 
 * 2 player mode
 * Must keep scores
@@ -16,21 +34,6 @@
 * 7 days  
 
 
-### **Technologies Used**
-
-* JavaScript ES6
-* HTML5 + HTML5 Audio
-* CSS + CSS Animation
-* GitHub  
-
-
-### **Dev Tools**
-
-* VS Code
-* XCode
-* GitHub
-* Google Fonts
-* Chrome Developer Tools
 <br/>
 <br/>
 
@@ -45,6 +48,25 @@ Connect Four (also known as Four Up, Plot Four, Find Four, Four in a Row, Four i
 
 This was my first project from General Assembly's Web Development Immersive Course. It was an individual project built in a week, and was both the first proper game I had built, and my first real-world type practice with JavaScript.
 <br/>
+<br/>
+
+
+## **Technologies Used**
+
+* JavaScript ES6
+* HTML5 + HTML5 Audio
+* CSS + CSS Animation
+* GitHub  
+
+
+### **Dev Tools**
+
+* VS Code
+* XCode
+* GitHub
+* Google Fonts
+* Chrome Developer Tools
+
 <br/>
 
 ## **Launch The Game**
@@ -101,6 +123,8 @@ The other win was to add the effect of a bounce on each token. This was achieved
 Initially the theme was the classic blue frame with red and yellow pieces however I chose this alternative theme of star wars background which led to adding spaceship type sounds to each play and to the reset button.
 <br/>
 <br/>
+
+## **Game Screenshot:**
 <img src="./images/game.png">
 <br/>
 <br/>

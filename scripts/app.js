@@ -191,8 +191,6 @@ function init() {
       result.innerHTML = ''
       document.querySelector('h4').innerHTML = 'Next Player'
 
-      // This switches starting player every time you restart, to make it fair!
-      // isPlayerOne ? !isPlayerOne : isPlayerOne
     }) 
   } 
 }
