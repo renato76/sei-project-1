@@ -26,7 +26,7 @@
 
 * 2 player mode
 * Must keep scores
-* Must have a win logic.
+* Must have a win logic
 
 
 ### **Timeframe**
@@ -89,7 +89,7 @@ I then needed to find a way to make the tokens stack from the bottom row and onl
 
 Next stage was to make players switch on each turn, and also check for a Winner on each turn.
 
-Then it was time to create the win / lose logic. This was achieved long handed, by writing out all the possible div id win combinations of 4 in a row, vertically, horizontally and diagonally. Total of 69 possible combinations.
+Then, it was time to create the win / lose logic. This was achieved long handed, by writing out all the possible div id win combinations of 4 in a row, vertically, horizontally and diagonally. Total of 69 possible combinations.
 
 I also added a logic to check if the game was a tie.
 
@@ -100,7 +100,7 @@ I also added a logic to check if the game was a tie.
 ## **Challenges**
 The main challenges were firstly getting player choices to stack properly on top of each other.
 
-The other challenges were the win logic calculation and approach, and then also the function for starting a new game, whilst also keeping scores.
+Other challenges were the win logic calculation and approach, and then also the function for starting a new game, whilst also keeping scores.
 
 This final function needed to effectively reset the game by making all cells available again but keep scores intact, which was quite a challenge.
 <br/>
@@ -120,7 +120,7 @@ For me the switching players was a win, definitely also the creating the winning
 
 The other win was to add the effect of a bounce on each token. This was achieved with animate.css prebuilt CSS effect. 
 
-Initially the theme was the classic blue frame with red and yellow pieces however I chose this alternative theme of star wars background which led to adding spaceship type sounds to each play and to the reset button.
+Initially, the theme was the classic blue frame with red and yellow pieces; however I chose this alternative theme of star wars background and blue vs yellow as the player colours, which led to adding spaceship type sounds to each play and to the reset button.
 <br/>
 <br/>
 
